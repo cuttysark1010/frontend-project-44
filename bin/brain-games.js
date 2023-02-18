@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import sayName from '../src/cli.js';
+import sayName from '../src/games/cli.js';
 
 sayName();
