@@ -6,7 +6,8 @@ const generateRound = () => {
   const step = makeRandomNum10();
   const array = [firstNum];
   let nextNumber;
-  for (let i = 1; i < 10; i += 1) {
+  const numberOfValues = 10;
+  for (let i = 1; i < numberOfValues; i += 1) {
     nextNumber = firstNum + step * i;
     array.push(nextNumber);
   }

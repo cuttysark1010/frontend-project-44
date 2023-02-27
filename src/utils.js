@@ -4,7 +4,7 @@ const makeRandomNum100 = () => {
 };
 
 const makeRandomNum10 = () => {
-  const randomNum = Math.floor(Math.random() * 100);
+  const randomNum = Math.floor(Math.random() * 10);
   return randomNum;
 };
 
