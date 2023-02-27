@@ -1,7 +1,8 @@
-import gameLogic from '../index.js';
+import runLogic from '../index.js';
+import { makeRandomNum100 } from '../utils.js';
 
 const generateRound = () => {
-  const question = Math.floor(Math.random() * 100);
+  const question = makeRandomNum100();
   const result = [];
   for (let i = 1; i <= question; i += 1) {
     if (question % i === 0) {
@@ -19,8 +20,8 @@ const generateRound = () => {
   return [question, correctAnswer];
 };
 
-const primeGame = () => {
-  gameLogic('Answer "yes" if given number is prime. Otherwise answer "no".', generateRound);
+const startGame = () => {
+  runLogic('Answer "yes" if given number is prime. Otherwise answer "no".', generateRound);
 };
 
-export default primeGame;
+export default startGame;

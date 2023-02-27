@@ -1,7 +1,8 @@
-import gameLogic from '../index.js';
+import runLogic from '../index.js';
+import { makeRandomNum100 } from '../utils.js';
 
 const generateRound = () => {
-  const question = Math.floor(Math.random() * 100);
+  const question = makeRandomNum100();
   let correctAnswer;
   if (question % 2 === 0) {
     correctAnswer = 'yes';
@@ -10,8 +11,8 @@ const generateRound = () => {
   }
   return [question, correctAnswer];
 };
-const evenGame = () => {
-  gameLogic('Answer "yes" if the number is even, otherwise answer "no".', generateRound);
+const startGame = () => {
+  runLogic('Answer "yes" if the number is even, otherwise answer "no".', generateRound);
 };
 
-export default evenGame;
+export default startGame;

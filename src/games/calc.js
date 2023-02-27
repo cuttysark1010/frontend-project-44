@@ -1,8 +1,9 @@
-import gameLogic from '../index.js';
+import runLogic from '../index.js';
+import { makeRandomNum10 } from '../utils.js';
 
 const generateRound = () => {
-  const randomNumber1 = Math.floor(Math.random() * 10);
-  const randomNumber2 = Math.floor(Math.random() * 10);
+  const randomNumber1 = makeRandomNum10();
+  const randomNumber2 = makeRandomNum10();
   const operations = ['+', '-', '*'];
   const random = Math.floor(Math.random() * operations.length);
   const randomOperation = operations[random];
@@ -19,7 +20,7 @@ const generateRound = () => {
   return [question, correctAnswer];
 };
 
-const calcGame = () => {
-  gameLogic('What is the result of the expression?', generateRound);
+const startGame = () => {
+  runLogic('What is the result of the expression?', generateRound);
 };
-export default calcGame;
+export default startGame;

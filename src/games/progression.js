@@ -1,8 +1,9 @@
-import gameLogic from '../index.js';
+import runLogic from '../index.js';
+import { makeRandomNum10 } from '../utils.js';
 
 const generateRound = () => {
-  const firstNum = Math.floor(Math.random() * 10);
-  const step = Math.floor(Math.random() * 10);
+  const firstNum = makeRandomNum10();
+  const step = makeRandomNum10();
   const array = [firstNum];
   let nextNumber;
   for (let i = 1; i < 10; i += 1) {
@@ -10,7 +11,7 @@ const generateRound = () => {
     array.push(nextNumber);
   }
 
-  const randomIndex = Math.floor(Math.random() * 10);
+  const randomIndex = makeRandomNum10();
   let index;
   if (randomIndex === 0) {
     index = randomIndex;
@@ -26,8 +27,8 @@ const generateRound = () => {
   return [question, correctAnswer];
 };
 
-const progressionGame = () => {
-  gameLogic('What number is missing in the progression?', generateRound);
+const startGame = () => {
+  runLogic('What number is missing in the progression?', generateRound);
 };
 
-export default progressionGame;
+export default startGame;
