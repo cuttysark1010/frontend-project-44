@@ -1,6 +1,18 @@
 import runLogic from '../index.js';
 import { makeRandomNum10 } from '../utils.js';
 
+const calculateValue = (operation, num1, num2) => {
+  let value;
+  switch (operation) {
+    case '+': value = num1 + num2;
+      break;
+    case '-': value = num1 - num2;
+      break;
+    default: value = num1 * num2;
+  }
+  return value;
+};
+
 const generateRound = () => {
   const randomNumber1 = makeRandomNum10();
   const randomNumber2 = makeRandomNum10();
@@ -8,14 +20,7 @@ const generateRound = () => {
   const random = Math.floor(Math.random() * operations.length);
   const randomOperation = operations[random];
   const question = `${randomNumber1} ${randomOperation} ${randomNumber2}`;
-  let answer;
-  switch (randomOperation) {
-    case '+': answer = randomNumber1 + randomNumber2;
-      break;
-    case '-': answer = randomNumber1 - randomNumber2;
-      break;
-    default: answer = randomNumber1 * randomNumber2;
-  }
+  const answer = calculateValue(randomOperation, randomNumber1, randomNumber2);
   const correctAnswer = String(answer);
   return [question, correctAnswer];
 };
