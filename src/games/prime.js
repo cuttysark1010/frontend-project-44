@@ -1,17 +1,20 @@
 import runLogic from '../index.js';
 import { makeRandomNum100 } from '../utils.js';
 
-const generateRound = () => {
-  const question = makeRandomNum100();
+const isEqualsTwo = (number) => {
   const result = [];
-  for (let i = 1; i <= question; i += 1) {
-    if (question % i === 0) {
+  for (let i = 1; i <= number; i += 1) {
+    if (number % i === 0) {
       result.push(i);
     }
   }
+  return result.length === 2;
+};
 
+const generateRound = () => {
+  const question = makeRandomNum100();
   let correctAnswer;
-  if (result.length === 2) {
+  if (isEqualsTwo(question) === true) {
     correctAnswer = 'yes';
   } else {
     correctAnswer = 'no';
