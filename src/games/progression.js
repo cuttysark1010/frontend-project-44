@@ -1,17 +1,21 @@
 import runLogic from '../index.js';
 import { makeRandomNum10 } from '../utils.js';
 
+const makeProgression = (arr, num1, step, numberOfValues) => {
+  let nextNumber;
+  for (let i = 1; i < numberOfValues; i += 1) {
+    nextNumber = num1 + step * i;
+    arr.push(nextNumber);
+  }
+  return arr;
+};
+
 const generateRound = () => {
   const firstNum = makeRandomNum10();
   const step = makeRandomNum10();
   const array = [firstNum];
-  let nextNumber;
   const numberOfValues = 10;
-  for (let i = 1; i < numberOfValues; i += 1) {
-    nextNumber = firstNum + step * i;
-    array.push(nextNumber);
-  }
-
+  const intermediateArray = makeProgression(array, firstNum, step, numberOfValues);
   const randomIndex = makeRandomNum10();
   let index;
   if (randomIndex === 0) {
@@ -19,11 +23,11 @@ const generateRound = () => {
   } else {
     index = randomIndex - 1;
   }
-  const answer = array[index];
+  const answer = intermediateArray[index];
   const correctAnswer = String(answer);
 
-  array[index] = '..';
-  const finalArray = array.join(' ');
+  intermediateArray[index] = '..';
+  const finalArray = intermediateArray.join(' ');
   const question = finalArray;
   return [question, correctAnswer];
 };
