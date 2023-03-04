@@ -1,7 +1,7 @@
 import runLogic from '../index.js';
-import { makeRandomNum100 } from '../utils.js';
+import getRandomNumber from '../utils.js';
 
-const isEqualsTwo = (number) => {
+const isPrime = (number) => {
   const result = [];
   for (let i = 1; i <= number; i += 1) {
     if (number % i === 0) {
@@ -12,14 +12,8 @@ const isEqualsTwo = (number) => {
 };
 
 const generateRound = () => {
-  const question = makeRandomNum100();
-  let correctAnswer;
-  if (isEqualsTwo(question) === true) {
-    correctAnswer = 'yes';
-  } else {
-    correctAnswer = 'no';
-  }
-
+  const question = getRandomNumber(0, 100);
+  const correctAnswer = isPrime(question) === true ? 'yes' : 'no';
   return [question, correctAnswer];
 };
 

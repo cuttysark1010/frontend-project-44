@@ -5,8 +5,8 @@ const runLogic = (description, generateRound) => {
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
   console.log(description);
-  const numberRounds = 3;
-  for (let i = 1; i <= numberRounds; i += 1) {
+  const roundsCount = 3;
+  for (let i = 1; i <= roundsCount; i += 1) {
     const [question, correctAnswer] = generateRound();
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');

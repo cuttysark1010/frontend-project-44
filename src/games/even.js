@@ -1,16 +1,11 @@
 import runLogic from '../index.js';
-import { makeRandomNum100 } from '../utils.js';
+import getRandomNumber from '../utils.js';
 
 const isEven = (number) => number % 2 === 0;
 
 const generateRound = () => {
-  const question = makeRandomNum100();
-  let correctAnswer;
-  if (isEven(question) === true) {
-    correctAnswer = 'yes';
-  } else {
-    correctAnswer = 'no';
-  }
+  const question = getRandomNumber(0, 100);
+  const correctAnswer = isEven(question) === true ? 'yes' : 'no';
   return [question, correctAnswer];
 };
 const startGame = () => {

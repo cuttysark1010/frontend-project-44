@@ -1,7 +1,7 @@
 import runLogic from '../index.js';
-import { makeRandomNum100 } from '../utils.js';
+import getRandomNumber from '../utils.js';
 
-const isMultiple = (num1, num2) => {
+const getGcd = (num1, num2) => {
   const result = [];
   let i = 1;
   while (i <= num1) {
@@ -12,16 +12,14 @@ const isMultiple = (num1, num2) => {
       i += 1;
     }
   }
-  return result;
+  return String(result[result.length - 1]);
 };
 
 const generateRound = () => {
-  const randomNumber1 = makeRandomNum100();
-  const randomNumber2 = makeRandomNum100();
+  const randomNumber1 = getRandomNumber(0, 100);
+  const randomNumber2 = getRandomNumber(0, 100);
   const question = `${randomNumber1} ${randomNumber2}`;
-  const intermediateResult = isMultiple(randomNumber1, randomNumber2);
-  const answer = intermediateResult[intermediateResult.length - 1];
-  const correctAnswer = String(answer);
+  const correctAnswer = getGcd(randomNumber1, randomNumber2);
   return [question, correctAnswer];
 };
 
